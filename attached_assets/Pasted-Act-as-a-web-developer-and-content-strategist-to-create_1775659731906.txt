@@ -1,0 +1,82 @@
+Act as a web developer and content strategist to create a compelling website for an SEO/consultancy business. The business specializes in driving traffic and generating sales for clients who have a poor social media and online presence.
+
+# Website Goals
+
+The primary goals of the website are to:
+*   Clearly communicate the business's value proposition.
+*   Attract and convert potential clients.
+*   Establish credibility and expertise in SEO and online marketing.
+*   Provide clear calls to action for consultations and service inquiries.
+
+# Website Content Sections
+
+The website should include the following sections:
+
+1.  **Hero Section:**
+    *   **Headline:** A strong, benefit-driven headline that immediately grabs attention.
+    *   **Sub-headline:** Briefly explains what the business does and for whom.
+    *   **Call to Action (CTA):** Prominent button (e.g., "Get a Free Consultation," "Boost Your Online Presence").
+    *   **Visual:** Engaging image or short video that reflects success and growth.
+
+2.  **About Us:**
+    *   **Our Mission/Vision:** Explain the company's purpose and long-term goals.
+    *   **Our Approach:** Detail the unique methodology used to help clients.
+    *   **The Team (Optional):** Briefly introduce key team members and their expertise.
+
+3.  **Services:**
+    *   Clearly list and describe the core services offered (e.g., SEO Audit, Social Media Strategy, Content Marketing, Paid Advertising, Website Optimization).
+    *   For each service, highlight the benefits and expected outcomes for clients.
+
+4.  **How It Works:**
+    *   A simple, step-by-step explanation of the client onboarding and service delivery process.
+    *   Should instill confidence and manage client expectations.
+
+5.  **Case Studies/Testimonials:**
+    *   Showcase successful client transformations with quantifiable results (e.g., "Increased website traffic by X%," "Generated Y leads in Z months").
+    *   Include client quotes and logos where possible to build social proof.
+
+6.  **Contact Us:**
+    *   Contact form for inquiries.
+    *   Business phone number and email address.
+    *   Link to social media profiles (if applicable).
+    *   Map to the office location (if applicable).
+
+7.  **Blog/Resources (Optional but Recommended):**
+    *   A section for articles, guides, and insights related to SEO, social media, and online marketing. This helps establish thought leadership.
+
+# Target Audience
+
+*   Small to medium-sized business owners.
+*   Businesses with a weak or non-existent online/social media presence.
+*   Companies looking to increase website traffic, leads, and sales through digital channels.
+
+# Tone and Style
+
+*   Professional, trustworthy, and results-oriented.
+*   Clear, concise, and jargon-free language.
+*   Empathetic to the challenges faced by businesses with poor online visibility.
+
+# Output Format
+
+Provide the website structure and content outline in a clear, organized manner. This should include:
+*   Section titles.
+*   Key messaging points for each section.
+*   Suggested CTAs.
+*   Brief descriptions of visual elements where applicable.
+
+The output should be a detailed plan that a web developer and content writer can use to build the actual website.
+
+# Example Snippet (Hero Section)
+
+**Section:** Hero Section
+
+*   **Headline Suggestion:** "Transform Your Online Presence, Ignite Your Sales."
+*   **Sub-headline Suggestion:** "We help businesses with limited online visibility drive targeted traffic and achieve significant sales growth through expert SEO and digital marketing strategies."
+*   **CTA Button Text:** "Book Your Free Growth Strategy Session"
+*   **Visual Idea:** A split image showing a "before" (faded, small website icon) and "after" (vibrant, growing graph with sales icons) or a short animation of a graph trending upwards.
+
+# Notes
+
+*   Emphasize the *transformation* aspect – moving clients from obscurity to success.
+*   Use strong verbs and benefit-oriented language throughout.
+*   Ensure CTAs are strategically placed and clear.
