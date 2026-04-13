@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -195,7 +195,7 @@ function Process() {
             <p className="text-lg text-primary-foreground/80 mb-8">
               We don't believe in black-box marketing. Our process is transparent, measurable, and highly collaborative. You'll know exactly what we're doing and why.
             </p>
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-none px-8">
+            <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-none px-8">
               Start Your Journey
             </Button>
           </FadeIn>
@@ -315,11 +315,7 @@ function Contact() {
               </div>
               <div>
                 <h4 className="font-bold text-foreground mb-1">Phone</h4>
-                <a href="tel:+15551234567" className="text-primary hover:underline">+1 (555) 123-4567</a>
-              </div>
-              <div>
-                <h4 className="font-bold text-foreground mb-1">Office</h4>
-                <p className="text-muted-foreground">100 Market St, Suite 400<br/>San Francisco, CA 94105</p>
+                <a href="tel:02036178191" className="text-primary hover:underline">020 3617 8191</a>
               </div>
             </div>
           </FadeIn>
