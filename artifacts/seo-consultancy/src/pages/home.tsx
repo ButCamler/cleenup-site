@@ -48,7 +48,7 @@ function Hero() {
       <div className="container relative z-10 mx-auto px-6 max-w-5xl text-center">
         <FadeIn>
           <span className="inline-block py-1 px-3 rounded-full bg-accent/20 text-accent text-sm font-semibold tracking-wider uppercase mb-6">
-            RankRise Digital
+            CleenUp
           </span>
         </FadeIn>
         <FadeIn delay={0.1}>
@@ -65,11 +65,11 @@ function Hero() {
         </FadeIn>
         <FadeIn delay={0.3}>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 rounded-none font-semibold group transition-all">
+            <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 rounded-none font-semibold group transition-all">
               Get Your Free Growth Audit
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg px-8 py-6 rounded-none border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
+            <Button size="lg" variant="outline" onClick={() => document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' })} className="w-full sm:w-auto text-lg px-8 py-6 rounded-none border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
               See Our Results
             </Button>
           </div>
@@ -94,7 +94,7 @@ function About() {
               Most digital agencies treat small and medium businesses like afterthoughts. They apply cookie-cutter templates, speak in jargon, and deliver vanity metrics that don't pay your bills.
             </p>
             <p className="text-lg text-muted-foreground mb-8">
-              RankRise was founded on a simple principle: you deserve a trusted partner who actually listens. We dig deep into your business, identify exactly why you're invisible online, and build a measurable system to drive real sales.
+              CleenUp was founded on a simple principle: you deserve a trusted partner who actually listens. We dig deep into your business, identify exactly why you're invisible online, and build a measurable system to drive real sales.
             </p>
             <div className="flex items-center gap-4">
               <div className="flex -space-x-4">
@@ -103,7 +103,7 @@ function About() {
                 <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center border-2 border-background"><Users className="w-5 h-5 text-primary" /></div>
               </div>
               <div className="text-sm font-semibold text-foreground">
-                Trusted by 100+ growing brands
+                Trusted by 50+ growing brands
               </div>
             </div>
           </FadeIn>
@@ -112,7 +112,7 @@ function About() {
           <div className="absolute -inset-4 bg-secondary transform rotate-3 rounded-2xl -z-10"></div>
           <img 
             src="/about-team.png" 
-            alt="RankRise Digital Team" 
+            alt="CleenUp Team" 
             className="w-full h-auto object-cover rounded-xl shadow-2xl relative z-0"
           />
         </FadeIn>
@@ -222,7 +222,7 @@ function Process() {
 
 const testimonials = [
   {
-    quote: "RankRise took us from literally zero online leads to booking out our services 3 months in advance. Their transparency is refreshing.",
+    quote: "CleenUp took us from literally zero online leads to booking out our services 3 months in advance. Their transparency is refreshing.",
     author: "Sarah Jenkins",
     role: "Founder, Jenkins Legal Group",
     stat: "Went from 0 to 1,200 monthly leads"
@@ -234,7 +234,7 @@ const testimonials = [
     stat: "Increased traffic by 340% in 4 months"
   },
   {
-    quote: "We were spending thousands on Google Ads with no return. RankRise restructured everything and dropped our cost-per-lead by 60%.",
+    quote: "We were spending thousands on Google Ads with no return. CleenUp restructured everything and dropped our cost-per-lead by 60%.",
     author: "Elena Rodriguez",
     role: "CMO, Nexus Tech",
     stat: "Decreased CAC by 62%"
@@ -311,7 +311,7 @@ function Contact() {
             <div className="space-y-6">
               <div>
                 <h4 className="font-bold text-foreground mb-1">Email</h4>
-                <a href="mailto:hello@rankrisedigital.com" className="text-primary hover:underline">hello@rankrisedigital.com</a>
+                <a href="mailto:Cleen.Up@outlook.com" className="text-primary hover:underline">Cleen.Up@outlook.com</a>
               </div>
               <div>
                 <h4 className="font-bold text-foreground mb-1">Phone</h4>
@@ -403,10 +403,10 @@ function Footer() {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-2xl font-serif tracking-tight font-bold text-accent">
-            RankRise Digital
+            CleenUp
           </div>
           <div className="text-sm text-background/60">
-            &copy; {new Date().getFullYear()} RankRise Digital. All rights reserved.
+            &copy; {new Date().getFullYear()} CleenUp. All rights reserved.
           </div>
         </div>
       </div>
@@ -419,7 +419,7 @@ function Navbar() {
     <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border transition-all duration-300">
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <div className="text-2xl font-serif font-bold text-primary tracking-tight">
-          RankRise.
+          CleenUp.
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground">
           <a href="#about" className="hover:text-accent transition-colors">About</a>
@@ -427,7 +427,7 @@ function Navbar() {
           <a href="#process" className="hover:text-accent transition-colors">Process</a>
           <a href="#results" className="hover:text-accent transition-colors">Results</a>
         </div>
-        <Button className="hidden md:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 rounded-none">
+        <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="hidden md:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 rounded-none">
           Get Started
         </Button>
       </div>
