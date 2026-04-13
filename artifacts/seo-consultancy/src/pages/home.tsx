@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowRight, BarChart3, Globe, LineChart, Megaphone, Search, Target, Users, CheckCircle2 } from "lucide-react";
+import { ArrowRight, LineChart, Target, Users, CheckCircle2, Wrench, TrendingUp, RefreshCw, ChevronRight } from "lucide-react";
 
 // --- Components ---
 
@@ -121,58 +121,173 @@ function About() {
   );
 }
 
-const services = [
+const cleanUpTiers = [
   {
-    icon: <Search className="w-8 h-8" />,
-    title: "SEO Audit & Strategy",
-    description: "We don't guess. We analyze your digital footprint, spy on competitors, and build a roadmap to the top of Google."
+    name: "Starter",
+    focus: "Google Business Profile",
+    items: [
+      "Accurate business info & categories",
+      "Professional photo uploads",
+      "Review response templates",
+      "Profile optimisation for local search",
+    ],
   },
   {
-    icon: <Megaphone className="w-8 h-8" />,
-    title: "Social Media Revamp",
-    description: "Turn your silent social profiles into engaging community hubs that actively generate warm leads."
+    name: "Standard",
+    focus: "Website Clean-Up",
+    items: [
+      "Broken link & error fixes",
+      "Outdated content refresh",
+      "Contact details audit",
+      "Mobile-friendliness check",
+      "Basic on-page SEO",
+    ],
   },
   {
-    icon: <Globe className="w-8 h-8" />,
-    title: "Content Marketing",
-    description: "Authoritative content that answers your customers' questions before they even ask them."
+    name: "Growth",
+    focus: "Full Digital Presence",
+    items: [
+      "Everything in Standard",
+      "Online directory listings",
+      "Email list audit",
+      "Review management setup",
+      "Google profile overhaul",
+    ],
   },
   {
-    icon: <Target className="w-8 h-8" />,
-    title: "Paid Advertising",
-    description: "High-ROI Google and Meta campaigns designed to capture intent and convert clicks into revenue."
+    name: "Premium",
+    focus: "All-In Brand Audit",
+    items: [
+      "Everything in Growth",
+      "Reachability improvements",
+      "Social consistency checks",
+      "Full brand audit report",
+      "Priority support",
+    ],
+    highlight: true,
   },
-  {
-    icon: <BarChart3 className="w-8 h-8" />,
-    title: "Performance Optimization",
-    description: "A fast site is a profitable site. We optimize your website's technical health for maximum conversions."
-  }
 ];
 
 function Services() {
   return (
-    <Section id="services" className="bg-secondary/50">
-      <div className="text-center max-w-3xl mx-auto mb-16">
+    <Section id="services" className="bg-secondary/30">
+      <div className="text-center max-w-3xl mx-auto mb-20">
         <FadeIn>
-          <h2 className="text-4xl md:text-5xl font-serif mb-6 text-foreground">Everything you need. Nothing you don't.</h2>
+          <h2 className="text-4xl md:text-5xl font-serif mb-6 text-foreground">Three ways we work with you.</h2>
           <p className="text-lg text-muted-foreground">
-            We focus exclusively on the high-leverage activities that actually move the needle for your business. No fluff.
+            Whether you need a one-time fix, active growth, or ongoing peace of mind — there's a service built for where you are right now.
           </p>
         </FadeIn>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service, idx) => (
-          <FadeIn key={idx} delay={0.1 * idx}>
-            <div className="bg-background p-8 border border-border h-full hover:border-primary/30 transition-colors group">
-              <div className="w-16 h-16 bg-primary/5 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-serif font-bold mb-3">{service.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+      {/* Service 1: The Clean-Up Package */}
+      <FadeIn>
+        <div className="mb-20">
+          <div className="flex items-center gap-4 mb-3">
+            <div className="w-12 h-12 bg-primary text-primary-foreground rounded-xl flex items-center justify-center flex-shrink-0">
+              <Wrench className="w-6 h-6" />
             </div>
-          </FadeIn>
-        ))}
+            <div>
+              <div className="text-xs font-bold tracking-widest uppercase text-accent mb-0.5">One-Time · Tiered</div>
+              <h3 className="text-2xl md:text-3xl font-serif font-bold text-foreground">The Clean-Up Package</h3>
+            </div>
+          </div>
+          <p className="text-muted-foreground text-lg mb-10 max-w-2xl">
+            Your business, polished and professional — once and for all. Choose the level that matches what needs fixing.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {cleanUpTiers.map((tier, idx) => (
+              <FadeIn key={idx} delay={0.08 * idx}>
+                <div className={`relative p-6 h-full flex flex-col border ${tier.highlight ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border hover:border-primary/30"} transition-colors`}>
+                  {tier.highlight && (
+                    <div className="absolute -top-3 left-6 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 tracking-wider uppercase">
+                      Most Popular
+                    </div>
+                  )}
+                  <div className={`text-sm font-bold tracking-widest uppercase mb-1 ${tier.highlight ? "text-primary-foreground/70" : "text-accent"}`}>
+                    {tier.name}
+                  </div>
+                  <div className={`text-lg font-serif font-bold mb-5 ${tier.highlight ? "text-primary-foreground" : "text-foreground"}`}>
+                    {tier.focus}
+                  </div>
+                  <ul className="space-y-3 flex-grow">
+                    {tier.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm">
+                        <ChevronRight className={`w-4 h-4 mt-0.5 flex-shrink-0 ${tier.highlight ? "text-accent" : "text-primary"}`} />
+                        <span className={tier.highlight ? "text-primary-foreground/90" : "text-muted-foreground"}>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    className={`mt-6 w-full py-2.5 text-sm font-semibold border transition-colors ${tier.highlight ? "border-accent text-accent hover:bg-accent hover:text-accent-foreground" : "border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground"}`}
+                  >
+                    Get Started
+                  </button>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </FadeIn>
+
+      {/* Services 2 & 3 side by side */}
+      <div className="grid md:grid-cols-2 gap-6">
+        <FadeIn delay={0.1}>
+          <div className="bg-background border border-border p-8 h-full flex flex-col hover:border-primary/30 transition-colors group">
+            <div className="w-12 h-12 bg-accent/10 text-accent rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+              <TrendingUp className="w-6 h-6" />
+            </div>
+            <div className="text-xs font-bold tracking-widest uppercase text-accent mb-2">Project-Based</div>
+            <h3 className="text-2xl font-serif font-bold mb-3 text-foreground">The Growth Partner Service</h3>
+            <p className="text-sm font-medium text-muted-foreground italic mb-4">"You focus on your craft — we'll fill your diary."</p>
+            <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+              For businesses who want customers brought to them. We handle identifying ideal clients, cold outreach, lead qualification, and early-stage negotiations — delivering warm, ready-to-convert prospects directly to you.
+            </p>
+            <ul className="space-y-2 mb-8">
+              {["Ideal client identification", "Cold outreach & prospecting", "Lead qualification", "Early-stage negotiation", "Warm prospects delivered to you"].map((item, i) => (
+                <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full py-3 text-sm font-semibold border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              Enquire Now
+            </button>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.2}>
+          <div className="bg-primary text-primary-foreground p-8 h-full flex flex-col">
+            <div className="w-12 h-12 bg-accent/20 text-accent rounded-xl flex items-center justify-center mb-6">
+              <RefreshCw className="w-6 h-6" />
+            </div>
+            <div className="text-xs font-bold tracking-widest uppercase text-accent mb-2">Monthly Subscription</div>
+            <h3 className="text-2xl font-serif font-bold mb-3">The Retention Plan</h3>
+            <p className="text-sm font-medium text-primary-foreground/60 italic mb-4">"Stay sharp, stay visible, stay ahead."</p>
+            <p className="text-primary-foreground/80 leading-relaxed mb-6 flex-grow">
+              A rolling monthly plan that keeps everything ticking. Nothing slips, your pipeline stays full, and you build a business that compounds over time.
+            </p>
+            <ul className="space-y-2 mb-8">
+              {["Ongoing website maintenance", "Google profile management", "Review monitoring", "Email list hygiene", "SEO upkeep", "Continued prospecting work"].map((item, i) => (
+                <li key={i} className="flex items-center gap-2 text-sm text-primary-foreground/80">
+                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full py-3 text-sm font-semibold bg-accent text-accent-foreground hover:bg-accent/90 transition-colors"
+            >
+              Start Your Plan
+            </button>
+          </div>
+        </FadeIn>
       </div>
     </Section>
   );
