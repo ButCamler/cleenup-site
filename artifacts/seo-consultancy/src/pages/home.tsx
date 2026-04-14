@@ -81,7 +81,7 @@ function Hero() {
 
 function About() {
   return (
-    <Section id="about" className="bg-background">
+    <Section id="about" className="bg-background !pt-36 md:!pt-40">
       <div className="grid md:grid-cols-2 gap-16 items-center">
         <div>
           <FadeIn>
@@ -150,7 +150,7 @@ function FlipCard({ front, back, delay = 0 }: { front: React.ReactNode; back: Re
 
 function Services() {
   return (
-    <Section id="services" className="bg-secondary/30 !pt-36 md:!pt-40">
+    <Section id="services" className="bg-secondary/30">
       <div className="text-center max-w-3xl mx-auto mb-16">
         <FadeIn>
           <h2 className="text-4xl md:text-5xl font-serif mb-6 text-foreground">Three ways we work with you.</h2>
@@ -590,8 +590,8 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans selection:bg-accent selection:text-accent-foreground">
       <Navbar />
       <main>
-        <Services />
         <About />
+        <Services />
         <Process />
         <Testimonials />
         <Contact />
