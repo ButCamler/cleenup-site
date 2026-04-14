@@ -436,22 +436,22 @@ function Process() {
 
 const testimonials = [
   {
-    quote: "CleenUp took us from literally zero online leads to booking out our services 3 months in advance. Their transparency is refreshing.",
-    author: "Sarah Jenkins",
-    role: "Founder, Jenkins Legal Group",
-    stat: "Went from 0 to 1,200 monthly leads"
+    quote: "My Google listing had the wrong phone number on it for about two years. Genuinely had no idea. They spotted it within minutes and got it sorted — I've had more calls since.",
+    author: "Jamie T.",
+    role: "Local plumber, South London",
+    win: "Google listing fixed"
   },
   {
-    quote: "Finally, an agency that speaks my language. They fixed our broken website and the SEO strategy paid for itself in month two.",
-    author: "Marcus Chen",
-    role: "Owner, Elevate Fitness",
-    stat: "Increased traffic by 340% in 4 months"
+    quote: "I knew our website looked a bit tired but didn't know where to start. They made it look proper on a phone and updated a few things. Customers actually comment on it now.",
+    author: "Priya S.",
+    role: "Owner, hair & beauty salon",
+    win: "Website updated & mobile-friendly"
   },
   {
-    quote: "We were spending thousands on Google Ads with no return. CleenUp restructured everything and dropped our cost-per-lead by 60%.",
-    author: "Elena Rodriguez",
-    role: "CMO, Nexus Tech",
-    stat: "Decreased CAC by 62%"
+    quote: "Someone told me we didn't come up on Google at all. These guys figured out why and sorted it. We're not exactly massive but we show up now, which is all I wanted.",
+    author: "Dave R.",
+    role: "Independent café, East London",
+    win: "Now showing up on Google"
   }
 ];
 
@@ -460,8 +460,8 @@ function Testimonials() {
     <Section id="results" className="bg-background">
       <FadeIn>
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif mb-6">Don't just take our word for it.</h2>
-          <p className="text-lg text-muted-foreground">Real businesses. Real revenue. Real impact.</p>
+          <h2 className="text-4xl md:text-5xl font-serif mb-6">What a difference it makes.</h2>
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto">Small fixes. Real results. Here's what some of our clients have said.</p>
         </div>
       </FadeIn>
 
@@ -469,16 +469,13 @@ function Testimonials() {
         {testimonials.map((t, idx) => (
           <FadeIn key={idx} delay={0.1 * idx}>
             <div className="bg-secondary/30 p-8 h-full flex flex-col relative border-t-4 border-accent">
-              <div className="text-4xl font-serif text-accent/30 absolute top-6 right-6">"</div>
-              <p className="text-lg text-foreground italic mb-8 relative z-10 flex-grow">
+              <div className="text-5xl font-serif text-accent/20 absolute top-4 right-6 leading-none">"</div>
+              <p className="text-base text-foreground leading-relaxed mb-8 relative z-10 flex-grow">
                 {t.quote}
               </p>
               <div className="pt-6 border-t border-border">
-                <div className="font-bold text-primary mb-1 flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-accent" />
-                  {t.stat}
-                </div>
-                <div className="font-semibold">{t.author}</div>
+                <div className="text-xs font-bold tracking-widest uppercase text-accent mb-2">{t.win}</div>
+                <div className="font-semibold text-foreground">{t.author}</div>
                 <div className="text-sm text-muted-foreground">{t.role}</div>
               </div>
             </div>
