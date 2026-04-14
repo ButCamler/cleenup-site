@@ -1,14 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { useToast } from "@/hooks/use-toast";
-import { ArrowRight, CheckCircle2, Wrench, TrendingUp, RefreshCw, ChevronRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, Wrench, TrendingUp, RefreshCw, ChevronRight, Mail, Phone } from "lucide-react";
 
 // --- Components ---
 
@@ -496,117 +489,40 @@ function Testimonials() {
   );
 }
 
-const formSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Invalid email address"),
-  business: z.string().min(2, "Business name is required"),
-  message: z.string().min(10, "Please tell us a bit about your goals"),
-});
-
 function Contact() {
-  const { toast } = useToast();
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: { name: "", email: "", business: "", message: "" },
-  });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Request Received",
-      description: "We'll be in touch within 24 hours to schedule your audit.",
-    });
-    form.reset();
-  }
-
   return (
     <Section id="contact" className="bg-muted border-t border-border">
-      <div className="grid lg:grid-cols-2 gap-16">
-        <div>
-          <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-serif mb-6 text-foreground">Ready to stop guessing?</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Fill out the form to request your free, no-obligation digital growth audit. We'll show you exactly where you're leaving money on the table.
-            </p>
-            
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-bold text-foreground mb-1">Email</h4>
-                <a href="mailto:Cleen.Up@outlook.com" className="text-primary hover:underline">Cleen.Up@outlook.com</a>
-              </div>
-              <div>
-                <h4 className="font-bold text-foreground mb-1">Phone</h4>
-                <a href="tel:02036178191" className="text-primary hover:underline">020 3617 8191</a>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
+      <div className="max-w-2xl mx-auto text-center">
+        <FadeIn>
+          <span className="inline-block text-xs font-bold tracking-widest uppercase text-accent mb-4">Get In Touch</span>
+          <h2 className="text-4xl md:text-5xl font-serif mb-6 text-foreground">Let's have a chat.</h2>
+          <p className="text-lg text-muted-foreground mb-12">
+            No forms to fill in, no obligation. Just drop us a message and we'll have a chat about what would actually help your business.
+          </p>
+        </FadeIn>
 
-        <FadeIn delay={0.2}>
-          <div className="bg-background p-8 shadow-xl border border-border">
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Full Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Jane Doe" className="bg-muted/50 border-transparent focus-visible:ring-primary rounded-none" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email Address</FormLabel>
-                      <FormControl>
-                        <Input type="email" placeholder="jane@company.com" className="bg-muted/50 border-transparent focus-visible:ring-primary rounded-none" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="business"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Business Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Acme Corp" className="bg-muted/50 border-transparent focus-visible:ring-primary rounded-none" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>What are your biggest growth challenges right now?</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          placeholder="We're getting traffic but no calls..." 
-                          className="min-h-[120px] bg-muted/50 border-transparent focus-visible:ring-primary rounded-none" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-none py-6 text-lg">
-                  Request Free Audit
-                </Button>
-              </form>
-            </Form>
+        <FadeIn delay={0.1}>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <a
+              href="mailto:Cleen.Up@outlook.com"
+              className="flex items-center gap-4 bg-background border border-border px-8 py-6 hover:border-primary transition-colors group"
+            >
+              <Mail className="w-6 h-6 text-accent flex-shrink-0" />
+              <div className="text-left">
+                <div className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-1">Email</div>
+                <div className="font-semibold text-foreground group-hover:text-primary transition-colors">Cleen.Up@outlook.com</div>
+              </div>
+            </a>
+            <a
+              href="tel:02036178191"
+              className="flex items-center gap-4 bg-background border border-border px-8 py-6 hover:border-primary transition-colors group"
+            >
+              <Phone className="w-6 h-6 text-accent flex-shrink-0" />
+              <div className="text-left">
+                <div className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-1">Phone</div>
+                <div className="font-semibold text-foreground group-hover:text-primary transition-colors">020 3617 8191</div>
+              </div>
+            </a>
           </div>
         </FadeIn>
       </div>
