@@ -330,44 +330,113 @@ function Services() {
   );
 }
 
-const steps = [
-  { step: "01", title: "Discovery", desc: "We sit down with you to understand your business, your margins, and your ideal customer." },
-  { step: "02", title: "Strategy", desc: "We map out exactly where you're losing to competitors and how we're going to fix it." },
-  { step: "03", title: "Execution", desc: "Our team implements the strategy while you focus on running your business." },
-  { step: "04", title: "Growth", desc: "We track the data, optimize for better conversions, and scale what works." }
-];
-
 function Process() {
   return (
     <Section id="process" className="bg-primary text-primary-foreground">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-serif mb-6">A proven framework for predictable growth.</h2>
-            <p className="text-lg text-primary-foreground/80 mb-8">
-              We don't believe in black-box marketing. Our process is transparent, measurable, and highly collaborative. You'll know exactly what we're doing and why.
-            </p>
-            <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-none px-8">
-              Start Your Journey
-            </Button>
-          </FadeIn>
-        </div>
-        <div className="space-y-8">
-          {steps.map((item, idx) => (
-            <FadeIn key={idx} delay={0.1 * idx}>
-              <div className="flex gap-6 group">
-                <div className="text-4xl font-serif font-light text-accent/50 group-hover:text-accent transition-colors">
-                  {item.step}
-                </div>
-                <div>
-                  <h3 className="text-2xl font-serif font-bold mb-2">{item.title}</h3>
-                  <p className="text-primary-foreground/70">{item.desc}</p>
-                </div>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+      <FadeIn>
+        <h2 className="text-4xl md:text-5xl font-serif mb-4">What I Do</h2>
+        <p className="text-primary-foreground/70 text-lg mb-16 max-w-2xl">
+          Three simple ways to help your business look the part and bring in more customers.
+        </p>
+      </FadeIn>
+
+      <div className="space-y-12 mb-16">
+
+        {/* Service 1 */}
+        <FadeIn delay={0.05}>
+          <div className="border-t border-primary-foreground/20 pt-10 grid md:grid-cols-3 gap-8">
+            <div>
+              <div className="text-xs font-bold tracking-widest uppercase text-accent mb-3">One-Off</div>
+              <h3 className="text-2xl md:text-3xl font-serif font-bold leading-snug">The Tidy-Up</h3>
+            </div>
+            <div className="md:col-span-2">
+              <p className="text-primary-foreground/80 text-lg mb-6 leading-relaxed">
+                A one-off clean-up of your online presence. Think of it as a spring clean for your business on the internet — so when someone searches for you, what they find actually makes them want to get in touch.
+              </p>
+              <p className="text-primary-foreground/70 text-base mb-4">Depending on what you need, I can help with:</p>
+              <ul className="space-y-3 mb-6">
+                {[
+                  "Your Google listing — right address, phone number, opening hours and photos",
+                  "Your website — easy to read, up to date and working properly on a phone",
+                  "Your reviews — making sure they're responded to and the good ones get seen",
+                  "Your overall findability — so customers can actually reach you when they need to",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-primary-foreground/80">
+                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-primary-foreground/60 italic text-sm">
+                You tell me what needs sorting. I'll give you a price. Simple as that.
+              </p>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* Service 2 */}
+        <FadeIn delay={0.1}>
+          <div className="border-t border-primary-foreground/20 pt-10 grid md:grid-cols-3 gap-8">
+            <div>
+              <div className="text-xs font-bold tracking-widest uppercase text-accent mb-3">Project-Based</div>
+              <h3 className="text-2xl md:text-3xl font-serif font-bold leading-snug">Finding You New Customers</h3>
+            </div>
+            <div className="md:col-span-2">
+              <p className="text-primary-foreground/80 text-lg leading-relaxed">
+                You focus on the job — I'll fill your books.
+              </p>
+              <p className="text-primary-foreground/70 text-base mt-4 leading-relaxed">
+                If you want more customers but don't have the time or appetite for chasing new business, I can take that off your plate. I'll find the right people, do the outreach, and hand them over to you ready to go.
+              </p>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* Service 3 */}
+        <FadeIn delay={0.15}>
+          <div className="border-t border-primary-foreground/20 pt-10 grid md:grid-cols-3 gap-8">
+            <div>
+              <div className="text-xs font-bold tracking-widest uppercase text-accent mb-3">Monthly</div>
+              <h3 className="text-2xl md:text-3xl font-serif font-bold leading-snug">Ongoing Support</h3>
+            </div>
+            <div className="md:col-span-2">
+              <p className="text-primary-foreground/80 text-lg leading-relaxed">
+                For businesses who just want it handled.
+              </p>
+              <p className="text-primary-foreground/70 text-base mt-4 leading-relaxed">
+                A simple monthly arrangement where I keep everything ticking along. Your website stays fresh, your Google stays accurate, and I keep an eye on things in the background so you don't have to think about it.
+              </p>
+              <p className="text-primary-foreground/60 italic text-sm mt-4">
+                No long contracts. Just a reliable pair of hands, every month.
+              </p>
+            </div>
+          </div>
+        </FadeIn>
+
       </div>
+
+      {/* Pricing note */}
+      <FadeIn delay={0.2}>
+        <div className="border-t border-primary-foreground/20 pt-10 grid md:grid-cols-3 gap-8 items-center">
+          <div>
+            <div className="text-xs font-bold tracking-widest uppercase text-accent mb-3">Pricing</div>
+            <h3 className="text-2xl font-serif font-bold">No surprises.</h3>
+          </div>
+          <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-center gap-8">
+            <p className="text-primary-foreground/70 text-base leading-relaxed flex-grow">
+              Everything is agreed upfront — you'll always know exactly what you're paying before I do a thing. Prices vary depending on what your business needs, so the best first step is just a quick conversation.
+            </p>
+            <Button
+              size="lg"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-none px-8 whitespace-nowrap flex-shrink-0"
+            >
+              Get in Touch
+            </Button>
+          </div>
+        </div>
+      </FadeIn>
+
     </Section>
   );
 }
