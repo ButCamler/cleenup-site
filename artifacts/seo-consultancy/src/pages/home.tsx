@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowRight, LineChart, Target, Users, CheckCircle2, Wrench, TrendingUp, RefreshCw, ChevronRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, Wrench, TrendingUp, RefreshCw, ChevronRight } from "lucide-react";
 
 // --- Components ---
 
@@ -85,36 +85,32 @@ function About() {
       <div className="grid md:grid-cols-2 gap-16 items-center">
         <div>
           <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-serif mb-6 text-foreground">
-              We build growth engines for businesses that refuse to be left behind.
+            <span className="inline-block text-xs font-bold tracking-widest uppercase text-accent mb-4">About Us</span>
+            <h2 className="text-4xl md:text-5xl font-serif mb-6 text-foreground leading-tight">
+              Hey, we're CleenUp.
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="text-lg text-muted-foreground mb-6">
-              Most digital agencies treat small and medium businesses like afterthoughts. They apply cookie-cutter templates, speak in jargon, and deliver vanity metrics that don't pay your bills.
+            <p className="text-lg text-muted-foreground mb-5">
+              We're not an agency, a corporation, or a sales team. We are just two young guys who know their way around the internet and want to help local businesses look the part online.
             </p>
-            <p className="text-lg text-muted-foreground mb-8">
-              CleenUp was founded on a simple principle: you deserve a trusted partner who actually listens. We dig deep into your business, identify exactly why you're invisible online, and build a measurable system to drive real sales.
+            <p className="text-lg text-muted-foreground mb-5">
+              Most businesses we speak to are brilliant at what they do — but their Google listing is out of date, their website hasn't been touched in years, or they're losing customers simply because someone couldn't find their phone number. That stuff is fixable. It just takes someone who knows how.
             </p>
-            <div className="flex items-center gap-4">
-              <div className="flex -space-x-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center border-2 border-background"><Target className="w-5 h-5 text-primary" /></div>
-                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center border-2 border-background"><LineChart className="w-5 h-5 text-accent" /></div>
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center border-2 border-background"><Users className="w-5 h-5 text-primary" /></div>
-              </div>
-              <div className="text-sm font-semibold text-foreground">
-                Trusted by 50+ growing brands
-              </div>
-            </div>
+            <p className="text-lg text-foreground font-medium border-l-4 border-accent pl-4">
+              No jargon, no long contracts, no confusing reports. Just honest work at a fair price.
+            </p>
           </FadeIn>
         </div>
-        <FadeIn delay={0.2} className="relative">
-          <div className="absolute -inset-4 bg-secondary transform rotate-3 rounded-2xl -z-10"></div>
-          <img 
-            src="/about-team.png" 
-            alt="CleenUp Team" 
-            className="w-full h-auto object-cover rounded-xl shadow-2xl relative z-0"
-          />
+        <FadeIn delay={0.2}>
+          <div className="relative">
+            <div className="absolute -inset-4 bg-secondary transform rotate-3 rounded-2xl -z-10"></div>
+            <img
+              src="/about-team.png"
+              alt="CleenUp Team"
+              className="w-full h-auto object-cover rounded-xl shadow-2xl relative z-0"
+            />
+          </div>
         </FadeIn>
       </div>
     </Section>
