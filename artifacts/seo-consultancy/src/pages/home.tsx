@@ -150,7 +150,7 @@ function FlipCard({ front, back, delay = 0 }: { front: React.ReactNode; back: Re
 
 function Services() {
   return (
-    <Section id="services" className="bg-secondary/30">
+    <Section id="services" className="bg-secondary/30 !pt-36 md:!pt-40">
       <div className="text-center max-w-3xl mx-auto mb-16">
         <FadeIn>
           <h2 className="text-4xl md:text-5xl font-serif mb-6 text-foreground">Three ways we work with you.</h2>
@@ -590,9 +590,8 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans selection:bg-accent selection:text-accent-foreground">
       <Navbar />
       <main>
-        <Hero />
-        <About />
         <Services />
+        <About />
         <Process />
         <Testimonials />
         <Contact />
