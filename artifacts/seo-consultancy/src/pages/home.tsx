@@ -334,7 +334,7 @@ function Process() {
   return (
     <Section id="process" className="bg-primary text-primary-foreground">
       <FadeIn>
-        <h2 className="text-4xl md:text-5xl font-serif mb-4">What I Do</h2>
+        <h2 className="text-4xl md:text-5xl font-serif mb-4">What We Do</h2>
         <p className="text-primary-foreground/70 text-lg mb-16 max-w-2xl">
           Three simple ways to help your business look the part and bring in more customers.
         </p>
@@ -353,7 +353,7 @@ function Process() {
               <p className="text-primary-foreground/80 text-lg mb-6 leading-relaxed">
                 A one-off clean-up of your online presence. Think of it as a spring clean for your business on the internet — so when someone searches for you, what they find actually makes them want to get in touch.
               </p>
-              <p className="text-primary-foreground/70 text-base mb-4">Depending on what you need, I can help with:</p>
+              <p className="text-primary-foreground/70 text-base mb-4">Depending on what you need, we can help with:</p>
               <ul className="space-y-3 mb-6">
                 {[
                   "Your Google listing — right address, phone number, opening hours and photos",
@@ -368,7 +368,7 @@ function Process() {
                 ))}
               </ul>
               <p className="text-primary-foreground/60 italic text-sm">
-                You tell me what needs sorting. I'll give you a price. Simple as that.
+                You tell us what needs sorting. We'll give you a price. Simple as that.
               </p>
             </div>
           </div>
@@ -383,10 +383,10 @@ function Process() {
             </div>
             <div className="md:col-span-2">
               <p className="text-primary-foreground/80 text-lg leading-relaxed">
-                You focus on the job — I'll fill your books.
+                You focus on the job — we'll fill your books.
               </p>
               <p className="text-primary-foreground/70 text-base mt-4 leading-relaxed">
-                If you want more customers but don't have the time or appetite for chasing new business, I can take that off your plate. I'll find the right people, do the outreach, and hand them over to you ready to go.
+                If you want more customers but don't have the time or appetite for chasing new business, we can take that off your plate. We'll find the right people, do the outreach, and hand them over to you ready to go.
               </p>
             </div>
           </div>
@@ -404,7 +404,7 @@ function Process() {
                 For businesses who just want it handled.
               </p>
               <p className="text-primary-foreground/70 text-base mt-4 leading-relaxed">
-                A simple monthly arrangement where I keep everything ticking along. Your website stays fresh, your Google stays accurate, and I keep an eye on things in the background so you don't have to think about it.
+                A simple monthly arrangement where we keep everything ticking along. Your website stays fresh, your Google stays accurate, and we keep an eye on things in the background so you don't have to think about it.
               </p>
               <p className="text-primary-foreground/60 italic text-sm mt-4">
                 No long contracts. Just a reliable pair of hands, every month.
@@ -424,7 +424,7 @@ function Process() {
           </div>
           <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-center gap-8">
             <p className="text-primary-foreground/70 text-base leading-relaxed flex-grow">
-              Everything is agreed upfront — you'll always know exactly what you're paying before I do a thing. Prices vary depending on what your business needs, so the best first step is just a quick conversation.
+              Everything is agreed upfront — you'll always know exactly what you're paying before we do a thing. Prices vary depending on what your business needs, so the best first step is just a quick conversation.
             </p>
             <Button
               size="lg"
