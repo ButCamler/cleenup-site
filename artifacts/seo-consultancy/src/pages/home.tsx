@@ -117,173 +117,214 @@ function About() {
   );
 }
 
-const cleanUpTiers = [
-  {
-    name: "Starter",
-    focus: "Google Business Profile",
-    items: [
-      "Accurate business info & categories",
-      "Professional photo uploads",
-      "Review response templates",
-      "Profile optimisation for local search",
-    ],
-  },
-  {
-    name: "Standard",
-    focus: "Website Clean-Up",
-    items: [
-      "Broken link & error fixes",
-      "Outdated content refresh",
-      "Contact details audit",
-      "Mobile-friendliness check",
-      "Basic on-page SEO",
-    ],
-  },
-  {
-    name: "Growth",
-    focus: "Full Digital Presence",
-    items: [
-      "Everything in Standard",
-      "Online directory listings",
-      "Email list audit",
-      "Review management setup",
-      "Google profile overhaul",
-    ],
-  },
-  {
-    name: "Premium",
-    focus: "All-In Brand Audit",
-    items: [
-      "Everything in Growth",
-      "Reachability improvements",
-      "Social consistency checks",
-      "Full brand audit report",
-      "Priority support",
-    ],
-    highlight: true,
-  },
-];
+function FlipCard({ front, back, delay = 0 }: { front: React.ReactNode; back: React.ReactNode; delay?: number }) {
+  const [flipped, setFlipped] = React.useState(false);
+  return (
+    <FadeIn delay={delay}>
+      <div
+        onMouseEnter={() => setFlipped(true)}
+        onMouseLeave={() => setFlipped(false)}
+        style={{ perspective: "1200px", height: "480px", cursor: "pointer" }}
+      >
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "100%",
+            transformStyle: "preserve-3d",
+            transition: "transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1)",
+            transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+          }}
+        >
+          <div style={{ position: "absolute", inset: 0, backfaceVisibility: "hidden" }}>
+            {front}
+          </div>
+          <div style={{ position: "absolute", inset: 0, backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
+            {back}
+          </div>
+        </div>
+      </div>
+    </FadeIn>
+  );
+}
 
 function Services() {
   return (
     <Section id="services" className="bg-secondary/30">
-      <div className="text-center max-w-3xl mx-auto mb-20">
+      <div className="text-center max-w-3xl mx-auto mb-16">
         <FadeIn>
           <h2 className="text-4xl md:text-5xl font-serif mb-6 text-foreground">Three ways we work with you.</h2>
           <p className="text-lg text-muted-foreground">
-            Whether you need a one-time fix, active growth, or ongoing peace of mind — there's a service built for where you are right now.
+            Whether you need a one-time fix, active growth, or ongoing peace of mind — hover each card to see what's included.
           </p>
         </FadeIn>
       </div>
 
-      {/* Service 1: The Clean-Up Package */}
-      <FadeIn>
-        <div className="mb-20">
-          <div className="flex items-center gap-4 mb-3">
-            <div className="w-12 h-12 bg-primary text-primary-foreground rounded-xl flex items-center justify-center flex-shrink-0">
-              <Wrench className="w-6 h-6" />
-            </div>
-            <div>
-              <div className="text-xs font-bold tracking-widest uppercase text-accent mb-0.5">One-Time · Tiered</div>
-              <h3 className="text-2xl md:text-3xl font-serif font-bold text-foreground">The Clean-Up Package</h3>
-            </div>
-          </div>
-          <p className="text-muted-foreground text-lg mb-10 max-w-2xl">
-            Your business, polished and professional — once and for all. Choose the level that matches what needs fixing.
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {cleanUpTiers.map((tier, idx) => (
-              <FadeIn key={idx} delay={0.08 * idx}>
-                <div className={`relative p-6 h-full flex flex-col border ${tier.highlight ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border hover:border-primary/30"} transition-colors`}>
-                  {tier.highlight && (
-                    <div className="absolute -top-3 left-6 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 tracking-wider uppercase">
-                      Most Popular
-                    </div>
-                  )}
-                  <div className={`text-sm font-bold tracking-widest uppercase mb-1 ${tier.highlight ? "text-primary-foreground/70" : "text-accent"}`}>
-                    {tier.name}
-                  </div>
-                  <div className={`text-lg font-serif font-bold mb-5 ${tier.highlight ? "text-primary-foreground" : "text-foreground"}`}>
-                    {tier.focus}
-                  </div>
-                  <ul className="space-y-3 flex-grow">
-                    {tier.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <ChevronRight className={`w-4 h-4 mt-0.5 flex-shrink-0 ${tier.highlight ? "text-accent" : "text-primary"}`} />
-                        <span className={tier.highlight ? "text-primary-foreground/90" : "text-muted-foreground"}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    className={`mt-6 w-full py-2.5 text-sm font-semibold border transition-colors ${tier.highlight ? "border-accent text-accent hover:bg-accent hover:text-accent-foreground" : "border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground"}`}
-                  >
-                    Get Started
-                  </button>
+      <div className="grid md:grid-cols-3 gap-6">
+
+        {/* Card 1: The Clean-Up Package */}
+        <FlipCard
+          delay={0.05}
+          front={
+            <div className="w-full h-full bg-primary text-primary-foreground p-8 flex flex-col justify-between border border-primary">
+              <div>
+                <div className="w-14 h-14 bg-accent/20 rounded-xl flex items-center justify-center mb-8">
+                  <Wrench className="w-7 h-7 text-accent" />
                 </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </FadeIn>
-
-      {/* Services 2 & 3 side by side */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <FadeIn delay={0.1}>
-          <div className="bg-background border border-border p-8 h-full flex flex-col hover:border-primary/30 transition-colors group">
-            <div className="w-12 h-12 bg-accent/10 text-accent rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-              <TrendingUp className="w-6 h-6" />
+                <div className="text-xs font-bold tracking-widest uppercase text-accent mb-3">One-Time · Tiered</div>
+                <h3 className="text-3xl font-serif font-bold leading-tight mb-4">The Clean-Up Package</h3>
+                <p className="text-primary-foreground/70 text-base">
+                  Your business, polished and professional — once and for all.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 text-accent text-sm font-semibold">
+                <ChevronRight className="w-4 h-4" />
+                Hover to see the tiers
+              </div>
             </div>
-            <div className="text-xs font-bold tracking-widest uppercase text-accent mb-2">Project-Based</div>
-            <h3 className="text-2xl font-serif font-bold mb-3 text-foreground">The Growth Partner Service</h3>
-            <p className="text-sm font-medium text-muted-foreground italic mb-4">"You focus on your craft — we'll fill your diary."</p>
-            <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
-              For businesses who want customers brought to them. We handle identifying ideal clients, cold outreach, lead qualification, and early-stage negotiations — delivering warm, ready-to-convert prospects directly to you.
-            </p>
-            <ul className="space-y-2 mb-8">
-              {["Ideal client identification", "Cold outreach & prospecting", "Lead qualification", "Early-stage negotiation", "Warm prospects delivered to you"].map((item, i) => (
-                <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full py-3 text-sm font-semibold border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-            >
-              Enquire Now
-            </button>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.2}>
-          <div className="bg-primary text-primary-foreground p-8 h-full flex flex-col">
-            <div className="w-12 h-12 bg-accent/20 text-accent rounded-xl flex items-center justify-center mb-6">
-              <RefreshCw className="w-6 h-6" />
+          }
+          back={
+            <div className="w-full h-full bg-background border border-border p-7 flex flex-col justify-between overflow-hidden">
+              <div>
+                <div className="text-xs font-bold tracking-widest uppercase text-accent mb-4">What's included</div>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { name: "Starter", focus: "Google Business Profile", items: ["Accurate info & categories", "Photo uploads", "Review responses"] },
+                    { name: "Standard", focus: "Website Clean-Up", items: ["Broken links & errors", "Content refresh", "Basic SEO"] },
+                    { name: "Growth", focus: "Full Digital Presence", items: ["Everything in Standard", "Directory listings", "Review management"] },
+                    { name: "Premium", focus: "All-In Brand Audit", items: ["Everything in Growth", "Social consistency", "Full brand audit"] },
+                  ].map((tier, i) => (
+                    <div key={i} className={`p-3 ${i === 3 ? "bg-primary text-primary-foreground" : "bg-secondary/50"}`}>
+                      <div className={`text-xs font-bold tracking-wider uppercase mb-0.5 ${i === 3 ? "text-accent" : "text-accent"}`}>{tier.name}</div>
+                      <div className={`text-sm font-semibold mb-2 ${i === 3 ? "text-primary-foreground" : "text-foreground"}`}>{tier.focus}</div>
+                      <ul className="space-y-1">
+                        {tier.items.map((item, j) => (
+                          <li key={j} className={`text-xs flex items-start gap-1 ${i === 3 ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                            <ChevronRight className="w-3 h-3 mt-0.5 flex-shrink-0 text-accent" />{item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="mt-4 w-full py-2.5 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Get Started
+              </button>
             </div>
-            <div className="text-xs font-bold tracking-widest uppercase text-accent mb-2">Monthly Subscription</div>
-            <h3 className="text-2xl font-serif font-bold mb-3">The Retention Plan</h3>
-            <p className="text-sm font-medium text-primary-foreground/60 italic mb-4">"Stay sharp, stay visible, stay ahead."</p>
-            <p className="text-primary-foreground/80 leading-relaxed mb-6 flex-grow">
-              A rolling monthly plan that keeps everything ticking. Nothing slips, your pipeline stays full, and you build a business that compounds over time.
-            </p>
-            <ul className="space-y-2 mb-8">
-              {["Ongoing website maintenance", "Google profile management", "Review monitoring", "Email list hygiene", "SEO upkeep", "Continued prospecting work"].map((item, i) => (
-                <li key={i} className="flex items-center gap-2 text-sm text-primary-foreground/80">
-                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full py-3 text-sm font-semibold bg-accent text-accent-foreground hover:bg-accent/90 transition-colors"
-            >
-              Start Your Plan
-            </button>
-          </div>
-        </FadeIn>
+          }
+        />
+
+        {/* Card 2: The Growth Partner Service */}
+        <FlipCard
+          delay={0.15}
+          front={
+            <div className="w-full h-full bg-background border border-border p-8 flex flex-col justify-between hover:border-primary/30 transition-colors">
+              <div>
+                <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-8">
+                  <TrendingUp className="w-7 h-7 text-accent" />
+                </div>
+                <div className="text-xs font-bold tracking-widest uppercase text-accent mb-3">Project-Based</div>
+                <h3 className="text-3xl font-serif font-bold leading-tight mb-4 text-foreground">The Growth Partner Service</h3>
+                <p className="text-muted-foreground text-base italic">
+                  "You focus on your craft — we'll fill your diary."
+                </p>
+              </div>
+              <div className="flex items-center gap-2 text-primary text-sm font-semibold">
+                <ChevronRight className="w-4 h-4" />
+                Hover to see how it works
+              </div>
+            </div>
+          }
+          back={
+            <div className="w-full h-full bg-accent text-accent-foreground p-8 flex flex-col justify-between">
+              <div>
+                <div className="text-xs font-bold tracking-widest uppercase mb-4 opacity-70">What we do for you</div>
+                <p className="text-base leading-relaxed mb-6">
+                  We handle the hard work of finding and warming up your ideal clients — so you only spend time on people ready to buy.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Ideal client identification",
+                    "Cold outreach & prospecting",
+                    "Lead qualification",
+                    "Early-stage negotiation",
+                    "Warm prospects delivered to you",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm font-medium">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 opacity-80" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="mt-4 w-full py-2.5 text-sm font-semibold bg-accent-foreground text-accent hover:opacity-90 transition-opacity"
+              >
+                Enquire Now
+              </button>
+            </div>
+          }
+        />
+
+        {/* Card 3: The Retention Plan */}
+        <FlipCard
+          delay={0.25}
+          front={
+            <div className="w-full h-full bg-primary text-primary-foreground p-8 flex flex-col justify-between">
+              <div>
+                <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-8">
+                  <RefreshCw className="w-7 h-7 text-accent" />
+                </div>
+                <div className="text-xs font-bold tracking-widest uppercase text-accent mb-3">Monthly Subscription</div>
+                <h3 className="text-3xl font-serif font-bold leading-tight mb-4">The Retention Plan</h3>
+                <p className="text-primary-foreground/70 text-base italic">
+                  "Stay sharp, stay visible, stay ahead."
+                </p>
+              </div>
+              <div className="flex items-center gap-2 text-accent text-sm font-semibold">
+                <ChevronRight className="w-4 h-4" />
+                Hover to see what's included
+              </div>
+            </div>
+          }
+          back={
+            <div className="w-full h-full bg-background border border-border p-8 flex flex-col justify-between">
+              <div>
+                <div className="text-xs font-bold tracking-widest uppercase text-accent mb-4">Monthly inclusions</div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  A rolling monthly plan that keeps everything ticking. Nothing slips, your pipeline stays full, and your business compounds over time.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Ongoing website maintenance",
+                    "Google profile management",
+                    "Review monitoring",
+                    "Email list hygiene",
+                    "SEO upkeep",
+                    "Continued prospecting work",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="mt-4 w-full py-2.5 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Start Your Plan
+              </button>
+            </div>
+          }
+        />
+
       </div>
     </Section>
   );
