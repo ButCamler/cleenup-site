@@ -2,12 +2,6 @@ uploads = []
 outputs = []
 
 [[generated]]
-id = "66Y7trRxAB-0TLmOHhhEW"
-uri = "file://artifacts/seo-consultancy/public/hero-bg.png"
-type = "image"
-title = "Abstract digital growth visualization"
-
-[[generated]]
 id = "lZhu1GIYHj-RKIMYJoQw6"
 uri = "file://artifacts/seo-consultancy/public/about-team.png"
 type = "image"
