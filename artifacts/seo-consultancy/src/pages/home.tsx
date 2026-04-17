@@ -75,35 +75,23 @@ function Hero() {
 function About() {
   return (
     <Section id="about" className="bg-background !pt-36 md:!pt-40">
-      <div className="grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <FadeIn>
-            <span className="inline-block text-xs font-bold tracking-widest uppercase text-accent mb-4">About Us</span>
-            <h2 className="text-4xl md:text-5xl font-serif mb-6 text-foreground leading-tight">
-              Hey, we're CleenUp.
-            </h2>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <p className="text-lg text-muted-foreground mb-5">
-              We're not an agency, a corporation, or a sales team. We are just two young guys who know their way around the internet and want to help local businesses look the part online.
-            </p>
-            <p className="text-lg text-muted-foreground mb-5">
-              Most businesses we speak to are brilliant at what they do — but their Google listing is out of date, their website hasn't been touched in years, or they're losing customers simply because someone couldn't find their phone number. That stuff is fixable. It just takes someone who knows how.
-            </p>
-            <p className="text-lg text-foreground font-medium border-l-4 border-accent pl-4">
-              No jargon, no long contracts, no confusing reports. Just honest work at a fair price.
-            </p>
-          </FadeIn>
-        </div>
-        <FadeIn delay={0.2}>
-          <div className="relative">
-            <div className="absolute -inset-4 bg-secondary transform rotate-3 rounded-2xl -z-10"></div>
-            <img
-              src="/about-team.png"
-              alt="CleenUp Team"
-              className="w-full h-auto object-cover rounded-xl shadow-2xl relative z-0"
-            />
-          </div>
+      <div className="max-w-3xl">
+        <FadeIn>
+          <span className="inline-block text-xs font-bold tracking-widest uppercase text-accent mb-4">About Us</span>
+          <h2 className="text-4xl md:text-5xl font-serif mb-6 text-foreground leading-tight">
+            Hey, we're CleenUp.
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <p className="text-lg text-muted-foreground mb-5">
+            We're not an agency, a corporation, or a sales team. We are just two young guys who know their way around the internet and want to help local businesses look the part online.
+          </p>
+          <p className="text-lg text-muted-foreground mb-5">
+            Most businesses we speak to are brilliant at what they do — but their Google listing is out of date, their website hasn't been touched in years, or they're losing customers simply because someone couldn't find their phone number. That stuff is fixable. It just takes someone who knows how.
+          </p>
+          <p className="text-lg text-foreground font-medium border-l-4 border-accent pl-4">
+            No jargon, no long contracts, no confusing reports. Just honest work at a fair price.
+          </p>
         </FadeIn>
       </div>
     </Section>
