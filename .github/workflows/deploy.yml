@@ -42,7 +42,7 @@ jobs:
       - name: Build site
         run: pnpm --filter @workspace/seo-consultancy exec vite build --config vite.config.github.ts
         env:
-          VITE_BASE_PATH: /cleenup-site/
+          VITE_BASE_PATH: /
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
