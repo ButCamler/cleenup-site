@@ -35,6 +35,7 @@
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
   --color-accent-border: var(--accent-border);
+  --color-accent-ink: hsl(var(--accent-ink));
 
   --color-destructive: hsl(var(--destructive));
   --color-destructive-foreground: hsl(var(--destructive-foreground));
@@ -110,6 +111,7 @@
 
   --accent: 40 90% 55%; /* Rich Gold/Ochre */
   --accent-foreground: 160 80% 10%;
+  --accent-ink: 36 85% 30%; /* Darker ochre for gold text on cream (readable contrast) */
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
@@ -181,6 +183,7 @@
   --muted-foreground: 160 10% 60%;
   --accent: 40 90% 55%;
   --accent-foreground: 160 80% 10%;
+  --accent-ink: 40 90% 55%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
   --input: 160 20% 20%;
