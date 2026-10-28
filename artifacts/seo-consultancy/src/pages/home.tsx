@@ -329,7 +329,6 @@ function Navbar() {
 const CHART_POINTS = [12, 14, 13, 18, 21, 20, 26, 31, 34, 41, 46, 54];
 
 function GrowthChart() {
-  const reduceMotion = useReducedMotion();
   const w = 480;
   const h = 260;
   const pad = { l: 46, r: 18, t: 20, b: 34 };
@@ -381,25 +380,20 @@ function GrowthChart() {
             </text>
           ) : null,
         )}
-        <motion.path
-          d={area}
-          fill="url(#cu-area)"
-          initial={reduceMotion ? false : { opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        />
-        <motion.path
+        {/*
+          Drawn statically on purpose. The previous scroll-triggered "draw" animation
+          (framer-motion pathLength + whileInView on the <path>) never fired on some
+          mobile browsers, leaving only the round line-cap dot visible. The whole chart
+          still fades in with its parent <FadeIn>.
+        */}
+        <path d={area} fill="url(#cu-area)" />
+        <path
           d={line}
           fill="none"
           stroke="hsl(40 90% 55%)"
           strokeWidth="3.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          initial={reduceMotion ? false : { pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.4, ease: "easeOut" }}
         />
         <circle cx={xs(last)} cy={ys(CHART_POINTS[last])} r="6" fill="hsl(40 90% 55%)" stroke="hsl(160 50% 25%)" strokeWidth="3" />
         <g transform={`translate(${xs(last) - 34}, ${ys(CHART_POINTS[last]) - 34})`}>
